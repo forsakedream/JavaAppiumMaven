@@ -1,7 +1,6 @@
 package tests;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
@@ -12,6 +11,7 @@ import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
+@Epic("Test For Articles")
 public class article extends CoreTestCase {
 
     private SearchPageObject SearchPageObject;
@@ -32,6 +32,7 @@ public class article extends CoreTestCase {
     @Test
     @DisplayName("Swipe Article To Footer")
     @Step("Start test testSwipeArticle")
+    @Severity(value = SeverityLevel.MINOR)
     public void testSwipeArticle()
     {
         SearchPageObject.initSearchInput();
@@ -42,8 +43,10 @@ public class article extends CoreTestCase {
     }
 
     @Test
+    @Features(value = {@Feature(value="Search"), @Feature(value="Article")})
     @DisplayName("Save 2 Articles to My List")
     @Description("Search For 2 Articles, Save Them To My List")
+    @Severity(value = SeverityLevel.BLOCKER)
     public void testSaveTwoArticlesToMyList()
     {
         SearchPageObject.searchAndSelectArticle("Appium");
